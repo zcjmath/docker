@@ -9,7 +9,7 @@
 - 需要熟悉docker，kubernete 常用命令 官网去搜 
 
 
-##环境安装
+## 环境安装
 
 > 安装单机kubernetes
 
@@ -52,7 +52,7 @@ rpm2cpio python-rhsm-certificates-1.19.10-1.el7_4.x86_64.rpm | cpio -iv --to-std
 ```
 
 
-##构建Spring boot工程
+## 构建Spring boot工程
 可以参考官网，也可以参考[spring Boot 应用通过Docker 来实现构建、运行、发布](https://blog.csdn.net/u010046908/article/details/56008445)
 本项目启动时候依赖mysql,而mysql服务通过k8s部署的可以参考[k8s部署mysql](https://www.cnblogs.com/zoulixiang/p/9910337.html)因此需要设置启动参数
 
@@ -75,7 +75,7 @@ mysql用户密码
 本项目使用数据库zcjdata,表为user
 
 
-##打包、发布、运行
+## 打包、发布、运行
 1. 编写对应Dockerfile，放在指定目录下
 
 2. 通过 mvn package docker:build 
@@ -191,7 +191,7 @@ app.jar
 
 
 6.在浏览器使用http://172.16.146.140:30081/user/list访问
-返回如下就成功了
+返回如下就成功了 
 ```json
 [{"id":1,"name":"zhangsan","age":15},{"id":2,"name":"lisi","age":16},{"id":3,"name":"wangwu","age":16},{"id":4,"name":"lihua","age":16}]
 ```
