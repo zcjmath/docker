@@ -75,19 +75,22 @@ mysql用户密码
 本项目使用数据库zcjdata,表为user
 
 
-## 打包、发布、运行
+##  打包、发布、运行
 1. 编写对应Dockerfile，放在指定目录下
 
 2. 通过 mvn package docker:build 
 
 3. 镜像发布到Docker registry中，通过docker images查看
+```text
 [root@ai k8s]# docker images
 REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
 zcjmath/docker                                        1.0.1               50aaad1ee48c        About an hour ago   148 MB
 docker.io/mysql                                       latest              2151acc12881        8 days ago          445 MB
 docker.io/openjdk                                     8-jdk-alpine        a3562aa0b991        2 months ago        105 MB
 registry.access.redhat.com/rhel7/pod-infrastructure   latest              99965fb98423        21 months ago       209 MB
-如上图zcjmath/docker:1.0.1镜像
+```
+
+如上面zcjmath/docker:1.0.1镜像
 
 4.编写k8s的yaml文件
 
@@ -153,6 +156,7 @@ image 是本地镜像
 env是应用启动需要的环境变量，其中MYSQL_IP必须是k8s分配cluster ip 端口也是容器端口
 
 5. 通过kubectl 启动app应用
+```text
 
 kubectl create -f app-svc.yaml 
 
@@ -174,12 +178,16 @@ fa2450d7febe        registry.access.redhat.com/rhel7/pod-infrastructure:latest  
 c151c41b05cf        docker.io/mysql:latest                                       "docker-entrypoint..."   2 hours ago         Up 2 hours                              k8s_mysql.2ebf24bf_mysql-rc-kwvdw_default_be17349c-b35c-11e9-ac83-000c2917b091_d6f87b8f
 be49fbddecc7        registry.access.redhat.com/rhel7/pod-infrastructure:latest   "/usr/bin/pod"           2 hours ago         Up 2 hours                              k8s_POD.1d520ba5_mysql-rc-kwvdw_default_be17349c-b35c-11e9-ac83-000c2917b091_4cd6126d
 
+```
+
+
 如果pod 没有启动起来可以通过kubectl describe pod app-rc-s4rj5查看pod没有启动原因
 
 如果是pod起来但是应用不能访问，需要查看容器日志可以通过  kubectl logs -f app-rc-s4rj5
 也可以通过 docker logs -f b97（容器id可以简写取前3个）
 
 如果想进入容器里面，查看应用的配置文件，可以通过
+```text
 [root@ai k8s]# docker exec -it b97 /bin/sh
 / # ls
 bin    dev    etc    home   lib    media  mnt    opt    proc   root   run    sbin   srv    sys    tmp    usr    var
@@ -187,8 +195,7 @@ bin    dev    etc    home   lib    media  mnt    opt    proc   root   run    sbi
 /opt # ls
 app.jar
 /opt # 
-
-
+```
 
 6.在浏览器使用http://172.16.146.140:30081/user/list访问
 返回如下就成功了 
