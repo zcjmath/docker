@@ -12,10 +12,7 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public void save() {
-        User user = new User();
-        user.setAge(12);
-        user.setName("zcj");
+    public void save(User user) {
         userDao.add(user);
     }
 

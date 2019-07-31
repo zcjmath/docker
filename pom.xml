@@ -16,7 +16,7 @@
     <properties>
         <java.version>1.8</java.version>
         <docker.image.prefix>zcjmath</docker.image.prefix>
-        <docker.image.tag>1.0.0</docker.image.tag>
+        <docker.image.tag>1.0.1</docker.image.tag>
         <mybatis.version>3.2.8</mybatis.version>
         <mybatis-generator-core.version>1.3.2</mybatis-generator-core.version>
         <mybatis-spring.version>1.2.2</mybatis-spring.version>
@@ -68,13 +68,12 @@
                 <configuration>
                     <imageName>${docker.image.prefix}/${project.artifactId}:${docker.image.tag}</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
-                    <dockerHost>http://172.16.146.139:2375/</dockerHost>
+                    <dockerHost>http://172.16.146.140:2375/</dockerHost>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
                             <include>${project.build.finalName}.jar</include>
-                            <include>classes/application.properties</include>
                         </resource>
                     </resources>
                 </configuration>
