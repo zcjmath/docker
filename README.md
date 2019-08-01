@@ -53,7 +53,7 @@ rpm2cpio python-rhsm-certificates-1.19.10-1.el7_4.x86_64.rpm | cpio -iv --to-std
 
 
 ## 构建Spring boot工程
-可以参考官网，也可以参考[spring Boot 应用通过Docker 来实现构建、运行、发布](https://blog.csdn.net/u010046908/article/details/56008445)
+可以参考官网[spring boot docker](https://spring.io/guides/topicals/spring-boot-docker/)，其中需要引入插件[docker-maven-plugin](https://github.com/spotify/docker-maven-plugin)，也可以参考[spring Boot 应用通过Docker 来实现构建、运行、发布](https://blog.csdn.net/u010046908/article/details/56008445)
 本项目启动时候依赖mysql,而mysql服务通过k8s部署的可以参考[k8s部署mysql](https://www.cnblogs.com/zoulixiang/p/9910337.html)因此需要设置启动参数
 
 > 启动环境变量
