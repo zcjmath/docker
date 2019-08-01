@@ -204,5 +204,4 @@ app.jar
 [{"id":1,"name":"zhangsan","age":15},{"id":2,"name":"lisi","age":16},{"id":3,"name":"wangwu","age":16},{"id":4,"name":"lihua","age":16}]
 ```
 
-
 ## 后续希望能集成git,jenkins,artifactory,docker hub构建持续集成、持续发布的系统  
